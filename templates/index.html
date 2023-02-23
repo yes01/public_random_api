@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>open-api-callback-test-service</title>
+    <!-- import Vue before Element -->
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <!-- 引入jQuery -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.7/lib/theme-chalk/index.css">
+</head>
+<body>
+<div id="app">
+    <el-header>
+        <template>
+            <div>
+                <el-divider content-position="right">ZeekSolutions <i class="el-icon-s-shop"></i></el-divider>
+                <el-divider content-position="left"><i
+                        class="el-icon-s-data"></i>open-api-callback-test-service {{ date_ing | parsetime }}
+                </el-divider>
+            </div>
+        </template>
+    </el-header>
+    <el-main>
+        <el-table
+                :data="tableData.filter(data => !search || data.data.toLowerCase().includes(search.toLowerCase()))"
+                stripe
+                style="width: 100%"
+                :default-sort="{prop: 'time', order: 'descending'}">
+            <el-table-column
+                    fixed="left"
+                    prop="time"
+                    label="时间"
+                    width="200"
+                    align="center"
+                    sortable>
+                <template slot-scope="scope">
+                    <i class="el-icon-time"></i>
+                    <span style="margin-left: 5px">{{ scope.row.time }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    prop="env"
+                    width="150"
+                    align="center"
+                    label="环境"
+                    sortable>
+            </el-table-column>
+            <el-table-column
+                    prop="version"
+                    width="100"
+                    align="center"
+                    label="版本"
+                    sortable>
+            </el-table-column>
+            <el-table-column
+                    prop="data"
+                    label="回调"
+                    align="center">
+            </el-table-column>
+            <el-table-column
+                    align="right"
+                    width="200">
+                <template slot="header" slot-scope="scope">
+                    <el-input
+                            v-model="search"
+                            size="mini"
+                            prefix-icon="el-icon-search"
+                            @input="handleChange"
+                            placeholder="请输入order_id进行搜索"/>
+                </template>
+            </el-table-column>
+            <template slot="empty">
+                <div>
+                    <el-empty description="暂无数据" :image-size="240"></el-empty>
+                </div>
+            </template>
+        </el-table>
+        <el-backtop :bottom="90" :right="30"></el-backtop>
+    </el-main>
+    <el-footer>
+        <div class="grid-content bg-purple pull-right">
+            <el-pagination
+                    :current-page="currentPage"
+                    :page-sizes="[10, 15, 20, 30, 50]"
+                    :page-size="pagesize"
+                    :total="tableData.length"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"/>
+        </div>
+        <el-divider>© 2022 ZeekSolutions . All Rights Reserved</el-divider>
+    </el-footer>
+</div>
+
+<script type="text/javascript">
+
+    //function getTime(){}
+    var getTime = function () {
+        var weeks = new Array('星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六');
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var week = date.getDay();
+        var hour = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        return year + '年' + month + '月' + day + '日' + '  ' + weeks[week] + '  ' + hour + ":" + minutes + ":" +
+            seconds;
+    };
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                tableData: [],
+                date_ing: '',
+                search: '',
+                currentPage: 1, //  el-pagination 初始页
+                pagesize: 15, //  el-pagination 每页的数据
+                input: ""
+            }
+        },
+        filters: {
+            parsetime: getTime
+        },
+        created () {
+            this.getRoute();
+        },
+        methods: {
+            refreshTime() {
+                var updataTime = getTime();
+                this.date_ing = updataTime;
+            },
+            handleChange (value) {
+                this.search = value;
+                this.currentPage = 1;
+                this.getRoute()
+            },
+            getRoute () {
+                var that = this;
+                $.ajax({
+                    type: "POST",
+                    url: "/api/callback/list",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "currentPage": this.currentPage, "pagesize": this.pagesize,
+                        "order_id": this.search
+                    }),
+                    dataType: "json",
+                    success: (response) => {
+                        this.tableData = response.data.callback;
+                        this.tableData.length = response.data.pagination.total;
+                        //写在获取数据成功后你想进行的操作
+                    },
+                    error: function () {
+                        alert("请求失败");
+                    }
+                });
+            },
+            // size-change	pageSize 改变时会触发	每页条数size
+            // current-change	currentPage 改变时会触发	当前页currentPage
+            handleSizeChange: function (size) {
+                this.pagesize = size;  // 每页下拉显示数据
+                this.getRoute();
+            },
+            handleCurrentChange: function (currentPage) {
+                this.currentPage = currentPage;  // 点击第几页
+                this.getRoute();
+            }
+        },
+        mounted() {
+            this.date_ing = setInterval(this.refreshTime, 1000);
+        },
+        beforeDestroy() {
+            clearInterval(this.timer);
+        }
+    })
+</script>
+<style>
+    .pull-right {
+        text-align: right;
+    }
+</style>
+</body>
+</html>
