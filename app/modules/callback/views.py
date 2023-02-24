@@ -1,8 +1,13 @@
 from . import callback_blu
 from flask import request, jsonify
-from static.Yaml import *
+from utils.Yaml import *
 import random
 import datetime
+
+
+@callback_blu.route('/', methods=['GET', 'POST'])
+def index():
+    return "OK"
 
 
 @callback_blu.route('/get/sentence', methods=['GET', 'POST'])
