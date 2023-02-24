@@ -8,4 +8,4 @@ RUN  pip install -r requirements.txt -i http://mirrors.aliyun.com/pypi/simple/  
 
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone
 
-CMD python manage.py runserver -h 0.0.0.0 -D --threaded
+CMD python /data/webapp/manage.py runserver -h 0.0.0.0 -D --threaded
