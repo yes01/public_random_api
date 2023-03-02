@@ -28,4 +28,7 @@ def create_app(config_name):
     from app.modules.callback import callback_blu
     app.register_blueprint(callback_blu)
 
+    from app.modules.download import download_blu
+    app.register_blueprint(download_blu)
+
     return app
