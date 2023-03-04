@@ -1,4 +1,6 @@
 #EXTM3U
+#EXTINF:-1 tvg-logo="https://apic.douyucdn.cn/upload/avatar_v3/202010/28a38cf1f0744187847f608fa5322759_big.jpg" group-title="斗鱼",吉林卫视小品合集
+https://epg.112114.xyz/douyu/9273031
 #EXTINF:-1 group-title="虎牙 🇨🇳️",★★★★★虎牙 🇨🇳️★★★★★
 http://live.aptvapp.com/live/huya/688
 #EXTINF:-1 tvg-logo="https://huyaimg.msstatic.com/avatar/1042/6f/3626ef611e990cbbcefab8e1bbc561_180_135.jpg?1673464127&466020" group-title="虎牙", LPL
@@ -11,6 +13,8 @@ http://live.aptvapp.com/live/huya/691346
 http://live.aptvapp.com/live/huya/1066
 #EXTINF:-1 tvg-logo="https://huyaimg.msstatic.com/avatar/1009/c7/39391a6bdcd42ffe32f59bfe22250d_180_135.jpg?1656572285" group-title="虎牙", 微竞-疯行兄弟
 http://live.aptvapp.com/live/huya/520123
+#EXTINF:-1 tvg-logo="https://huyaimg.msstatic.com/avatar/1073/f7/5d111b33a50f1d18c09d854a4436ff_180_135.jpg?1649483573&466096" group-title="虎牙", 童锦程【798】
+http://live.aptvapp.com/live/huya/527988
 #EXTINF:-1 tvg-logo="https://huyaimg.msstatic.com/avatar/1084/37/7c96090110880e88916b11e4a18cf9_180_135.jpg?1526894329" group-title="虎牙", 周星星
 http://live.aptvapp.com/live/huya/11342412
 #EXTINF:-1 tvg-logo="https://huyaimg.msstatic.com/avatar/1035/d8/c269febfa3d4ec25e6a9902b23457f_180_135.jpg?1602927215" group-title="虎牙", M丶怀逝【李白导师】
@@ -47,6 +51,20 @@ https://epg.112114.xyz/douyu/1984839
 https://epg.112114.xyz/douyu/290935
 #EXTINF:-1 tvg-logo="https://apic.douyucdn.cn/upload/avatar_v3/202212/4e340983996f43b991ffa50af7b956f6_big.jpg" group-title="斗鱼",正直博
 https://epg.112114.xyz/douyu/1617
+#EXTINF:-1 group-title="抖音",金同学🎧
+http://pull-flv-f1.douyincdn.com/gamereplay/stream-400834933894415024_uhd.flv
+#EXTINF:-1 group-title="抖音",疯狂小杨哥
+http://pull-flv-f26.douyincdn.com/stagereplay/stream-400834404132848303_or4.flv
+#EXTINF:-1 group-title="抖音",同姬不同机
+http://pull-hls-l26.douyincdn.com/third/stream-689065481774301670_or4.m3u8?expire=640ca109&sign=5a01785fee47e94b0a6fc58829420e22
+#EXTINF:-1 group-title="抖音",iiiis
+http://pull-l3.douyincdn.com/stage/stream-400835307282628690_or4.flv?auth_key=1678547557-0-0-067844e252930ae57af4748321dfebe1
+#EXTINF:-1 group-title="抖音",东方甄选
+http://pull-hs-f5.flive.douyincdn.com/third/stream-400831720917828267_uhd.flv?expire=1678549407&sign=09a437942b5ba4e799850193dc4b02a8&volcSecret=09a437942b5ba4e799850193dc4b02a8&volcTime=1678549407
+#EXTINF:-1 group-title="bilibili",老实憨厚的笑笑
+https://xy112x46x158x29xy.mcdn.bilivideo.cn:486/live-bvc/579938/live_8739477_3713195_bluray/index.m3u8?expires=1677948564&len=0&oi=2028942970&pt=web&qn=10000&trid=100734cac36e14bf48d29863efe6679995b0&sigparams=cdn,expires,len,oi,pt,qn,trid&cdn=cn-live-mcdn&sign=1bc33bec33d9564da2607b6ba8810f34&sk=27302cfe17bcf01580cecfcb698275c8&flvsk=e3aba3a32d33f12ba204825894f385cb&p2p_type=1&src=57345&sl=10&free_type=0&mid=0&sid=mcdn-ydzd-sxqt-cm-1002948&chash=0&sche=ban&bvchls=1&score=18&pp=rtmp&machinezone=jd&source=onetier&trace=0&site=2910849cd47b14858d0914fc847fa0db&order=1
+#EXTINF:-1 group-title="bilibili",菠萝赛东°
+https://xy112x46x158x29xy.mcdn.bilivideo.cn:486/live-bvc/995066/live_197098_332_c521e483_bluray/index.m3u8?expires=1677948678&len=0&oi=2028942970&pt=web&qn=10000&trid=100759fa194991ee441293eaea3bd3cbfee9&sigparams=cdn,expires,len,oi,pt,qn,trid&cdn=cn-live-mcdn&sign=9c425fd523f8e2ddca56bb7b5cc0a5a2&sk=5bf07b9bbe6df2e0a6bc476fe3d9a64272675319e1bf242748fcda5ad9e12f7b&flvsk=4207df3de646838b084f14f252be3aff32e9f79d88eba2913a6cbca8199656ed&p2p_type=1&src=57345&sl=4&free_type=0&mid=0&sid=mcdn-ydzd-sxqt-cm-1002948&chash=1&sche=ban&bvchls=1&score=14&pp=rtmp&machinezone=jd&source=onetier&trace=0&site=92c3dc2e625f15879cddacd5a6a8ba50&order=1
 #EXTINF:-1 group-title="4K频道",欢笑剧场4K
 http://118.24.227.124/bytedance.live.cqccn.com/__cl/cg:live/__c/hxjc_4K/__op/default/__f/index.m3u8
 #EXTINF:-1 group-title="4K频道",CCTV-4K
