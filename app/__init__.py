@@ -31,4 +31,7 @@ def create_app(config_name):
     from app.modules.download import download_blu
     app.register_blueprint(download_blu)
 
+    from app.modules.live_source import live_source_blu
+    app.register_blueprint(live_source_blu)
+
     return app
