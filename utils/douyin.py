@@ -99,8 +99,7 @@ class DouYin:
     #         return response['data']['room']['owner']['web_rid']
 
 
-# if __name__ == '__main__':
-#     r = '862858925498'
-#     douyin = DouYin(r)
-#     ss = douyin.get_real_url()
-#     print(douyin.get_real_url())
+if __name__ == '__main__':
+    r = '537585882826'
+    douyin = DouYin(r)
+    print(douyin.get_real_url())

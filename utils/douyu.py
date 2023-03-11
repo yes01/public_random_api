@@ -131,7 +131,7 @@ class DouYu:
         return real_url
 
 
-# if __name__ == '__main__':
-#     r = input('输入斗鱼直播间号：\n')
-#     s = DouYu(r)
-#     print(s.get_real_url())
+if __name__ == '__main__':
+    r = input('输入斗鱼直播间号：\n')
+    s = DouYu(r)
+    print(s.get_real_url())
